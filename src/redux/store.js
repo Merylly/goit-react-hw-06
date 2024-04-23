@@ -16,7 +16,7 @@ import { filtersReducer } from "./filtersSlice";
 const usersPeristConfig = {
   key: "contacts",
   storage,
-  whitelist: ["contacts"],
+  whitelist: ["items"],
 };
 
 export const store = configureStore({
@@ -32,4 +32,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);

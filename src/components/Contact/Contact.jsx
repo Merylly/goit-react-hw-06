@@ -1,7 +1,16 @@
 import { BiSolidUser, BiSolidPhone } from "react-icons/bi";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
+
 import css from "./Contact.module.css";
 
-const Contact = ({ contact, onDeleteContact }) => {
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
+
+  const onDeleteContact = () => {
+    dispatch(deleteContact(contact.id));
+  };
+
   return (
     <li className={css.contactItem}>
       <div className={css.contactWrap}>
@@ -17,7 +26,7 @@ const Contact = ({ contact, onDeleteContact }) => {
       <button
         className={css.deleteButton}
         type="button"
-        onClick={() => onDeleteContact(contact.id)}
+        onClick={onDeleteContact}
       >
         Delete
       </button>
